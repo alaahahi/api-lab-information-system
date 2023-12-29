@@ -28,6 +28,7 @@ class User extends Authenticatable
         'publickey_receiver',
         'parent_id',
         'is_band',
+        'token',
         'device'
     ];
 

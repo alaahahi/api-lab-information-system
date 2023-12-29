@@ -8,6 +8,8 @@ use App\Http\Controllers\FormRegistrationController;
 use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\DashboardController;
 use App\Models\SystemConfig;
+use Rap2hpoutre\LaravelLogViewer\LogViewerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +20,11 @@ use App\Models\SystemConfig;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::resource('/users', UserController::class)->middleware(['auth', 'verified']);
+Route::get('log-viewer', [LogViewerController::class, 'index'])->middleware(['auth', 'verified']);
+Route::get('log-viewer/{file}', [LogViewerController::class, 'show']);
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'config' => SystemConfig::first(),

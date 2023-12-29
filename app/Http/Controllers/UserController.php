@@ -21,11 +21,6 @@ class UserController extends Controller
     public function __construct(){
         $this->url = env('FRONTEND_URL');
          $this->userAdmin =  UserType::where('name', 'admin')->first()->id;
-         $this->userDateEntry =  UserType::where('name', 'data_entry')->first()->id;
-         $this->userLab =  UserType::where('name', 'lab')->first()->id;
-         $this->userDoctor =  UserType::where('name', 'doctor')->first()->id;
-         $this->useCourt=  UserType::where('name', 'court')->first()->id;
-
     }
 
     /**
@@ -73,8 +68,8 @@ class UserController extends Controller
                     'type_id' => $request->userType,
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
+                    
                 ]);
-            
         return Inertia::render('Users/Index', ['url'=>$this->url]);
     }
 

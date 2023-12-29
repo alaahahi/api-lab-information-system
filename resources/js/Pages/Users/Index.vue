@@ -86,6 +86,8 @@ const  map = (id) => {
                                     <th className="px-4 py-2">الأسم</th>
                                     <th className="px-4 py-2">اسم المستخدم</th>
                                     <th className="px-4 py-2">الصلاحيات</th>
+                                    <th className="px-4 py-2">Token</th>         
+
                                     <th className="px-4 py-2">تنفيذ</th>         
                                 </tr>
                             </thead>
@@ -96,6 +98,8 @@ const  map = (id) => {
                                     <td className="border px-4 py-2">{{ user.name }}</td>
                                     <td className="border px-4 py-2">{{ user.email }}<span v-if="user.device" class="text-sm text-green-500 font-bold  py-2 px-2 hover:text-red-500">{{user.device}}</span></td>
                                     <td className="border px-4 py-2">{{ user.user_type ? user.user_type['name'] :"" }}</td>
+                                    <td className="border px-4 py-2">{{ user.token }}</td>
+
                                     <td className="border px-4 py-2"  style="min-height: 42px;">
                                         <Link
                                             tabIndex="1"
@@ -106,16 +110,7 @@ const  map = (id) => {
                                             تعديل
                                         </Link>
 
-                                        <button
-                                            @click="destroy(user.id)"
-                                            tabIndex="-1"
-                                            type="button"
-                                            className="mx-1 px-2 py-1 text-sm text-white bg-rose-500 rounded"
-                                            v-if="user.email!='admin@admin.com'"
-                                        >
-                                            حذف
-                                        </button>
-                                        
+                                   
                                         <button 
                                             @click="ban(user.id)"
                                             tabIndex="-1"

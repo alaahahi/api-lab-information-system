@@ -35,24 +35,9 @@ const showingNavigationDropdown = ref(false);
                                 </NavLink>
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"  v-if="$page.props.auth.user.type_id!=5">
-                                <NavLink :href="route('formRegistration')" :active="route().current('formRegistration')">
-                                     استمارة الزواج
-                                </NavLink>
-                            </div>
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.props.auth.user.type_id==1||$page.props.auth.user.type_id==2||$page.props.auth.user.type_id==4" >
-                                <NavLink :href="route('FormRegistrationCompleted')" :active="route().current('FormRegistrationCompleted')">
-                                    استمارة المنجزة
-                                </NavLink>
-                            </div>
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.props.auth.user.type_id==1||$page.props.auth.user.type_id==2" >
-                                <NavLink :href="route('FormRegistrationSaved')" :active="route().current('FormRegistrationSaved')">
-                                     الأرشفة
-                                </NavLink>
-                            </div>
-                            <div  class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="false" >
-                                <NavLink :href="route('FormRegistrationCourt')" :active="route().current('FormRegistrationCourt')">
-                                    المحكمة
-                                </NavLink>
+                                <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out" href="/log-viewer" target="_blank">
+                                     سجل النشاط
+                                </a>
                             </div>
                         </div>
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -112,18 +97,12 @@ const showingNavigationDropdown = ref(false);
                             <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     الرئيسية
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('users.index')" :active="route().current('users.index')" v-if="$page.props.auth.user.type_id==1">
+                            <ResponsiveNavLink :href="route('users.index')" :active="route().current('users.index')">
                                     المستخدمين
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('formRegistration')" :active="route().current('formRegistration')" v-if="$page.props.auth.user.type_id!=5">
-                                     استمارة الزواج
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('FormRegistrationCompleted')" :active="route().current('FormRegistrationCompleted')" v-if="$page.props.auth.user.type_id==1||$page.props.auth.user.type_id==2||$page.props.auth.user.type_id==4">
-                                    استمارة المنجزة
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('FormRegistrationSaved')" :active="route().current('FormRegistrationSaved')" v-if="$page.props.auth.user.type_id==1||$page.props.auth.user.type_id==2">
-                                     الأرشفة
-                            </ResponsiveNavLink>
+                            <a href="/log-viewer" target="_blank">
+                                     سجل النشاط
+                            </a>
                             <ResponsiveNavLink :href="route('logout')" method="post" as="button">
                                 تسجيل الخروج    
                             </ResponsiveNavLink>
