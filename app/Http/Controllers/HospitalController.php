@@ -69,6 +69,8 @@ class HospitalController extends Controller
                 'database.connections.custom_connection.database' => $database,
                 'database.connections.custom_connection.username' => $username,
                 'database.connections.custom_connection.password' => $password,
+                'database.connections.custom_connection.charset' => 'utf8mb4', // or 'utf8' depending on your requirements
+                'database.connections.custom_connection.collation' => 'utf8mb4_unicode_ci', // or 'utf8_general_ci' depending on your requirements
             ]);
 
 
